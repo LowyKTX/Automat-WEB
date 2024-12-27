@@ -1,6 +1,7 @@
 package com.nttdata.steps;
 
 import com.nttdata.page.LoginPage;
+import org.junit.Assert;
 import org.junit.platform.commons.function.Try;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,6 @@ public class LoginSteps {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         wait.until(ExpectedConditions.visibilityOfElementLocated(LoginPage.loginButton));
 
-
     }
 
     /**
@@ -46,15 +46,15 @@ public class LoginSteps {
      */
     public void login(){
         this.driver.findElement(LoginPage.loginButton).click();
+        validarlogin();
     }
-    public void ValidarLogin(){
-        WebDriverWait espera = new WebDriverWait(driver, Duration.ofSeconds(5));
-        Try{
-            WebElement button = espera.until(ExpectedConditions.visibilityOfElementLocated(LoginPage.BotonLogout))
-        }
-        catch{
-
-        }
-
+    public void validarlogin(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.titleIs("My Store"));
+        String actualTitle = driver.getTitle().toString().trim();
+        String expectedTitle = "My Store";
+        System.out.println(actualTitle);
+        Assert.assertEquals(actualTitle,expectedTitle);
+        System.out.println(expectedTitle);
     }
 }
