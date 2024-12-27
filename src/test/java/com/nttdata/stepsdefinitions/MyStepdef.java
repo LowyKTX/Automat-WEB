@@ -1,13 +1,11 @@
 package com.nttdata.stepsdefinitions;
 
 import com.nttdata.steps.CarSteps;
-import com.nttdata.steps.InventorySteps;
 import com.nttdata.steps.LoginSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
